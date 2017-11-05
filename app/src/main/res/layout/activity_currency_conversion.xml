@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.xchangapp.currency_conversion"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="33dp"
+        android:layout_marginEnd="25dp"
+        android:text="Crypto Currency Conversion Page"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/input_amt"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="25dp" />
+
+    <EditText
+        android:id="@+id/input_amt"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginBottom="185dp"
+        android:layout_marginTop="186dp"
+        android:digits="0123456789."
+        android:ems="10"
+        android:inputType="number|none"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/btnConvert"
+        app:layout_constraintStart_toEndOf="@+id/btnConvert"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Conversion Results:"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="ETH:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/eth_result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btc_result_tv"
+        app:layout_constraintStart_toStartOf="@+id/btc_result_tv"
+        tools:text="2000.00" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="66dp"
+        android:layout_marginStart="95dp"
+        android:text="BTC:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="95dp" />
+
+    <TextView
+        android:id="@+id/btc_result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7"
+        tools:text="2000.00"
+        android:layout_marginLeft="22dp" />
+
+    <Button
+        android:id="@+id/btnConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:layout_marginTop="20dp"
+        android:text="Convert"
+        app:layout_constraintEnd_toStartOf="@+id/btnClose"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        android:layout_marginRight="19dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:text="Selected Currency:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_amt"
+        tools:text="Selected Currency:"
+        android:layout_marginLeft="86dp" />
+
+    <TextView
+        android:id="@+id/sel_curr_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        app:layout_constraintEnd_toEndOf="@+id/input_amt"
+        app:layout_constraintTop_toBottomOf="@+id/input_amt"
+        tools:text="USD"
+        android:layout_marginRight="31dp" />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="Close"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnConvert"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        android:layout_marginLeft="3dp" />
+
+</android.support.constraint.ConstraintLayout>

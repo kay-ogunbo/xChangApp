@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="?attr/selectableItemBackground"
+    android:paddingTop="4dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <TextView
+            android:id="@+id/currSym"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:paddingTop="8dp"
+            android:textSize="16sp"
+            tools:text="Currency" />
+
+
+        <TextView
+            android:id="@+id/ethVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:paddingTop="8dp"
+            android:textSize="18sp"
+            tools:text="ETH Value" />
+
+        <TextView
+            android:id="@+id/btcVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:paddingTop="8dp"
+            android:textSize="18sp"
+            tools:text=" BTC Value" />
+    </LinearLayout>
+
+
+</LinearLayout>
