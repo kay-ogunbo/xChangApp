@@ -24,6 +24,7 @@
             android:layout_weight="1.5"
             android:paddingTop="8dp"
             android:textSize="16sp"
+            android:textColor="#FFFFFF"
             tools:text="Currency" />
 
 
@@ -35,6 +36,7 @@
             android:layout_weight="1"
             android:paddingTop="8dp"
             android:textSize="18sp"
+            android:textColor="#FFFFFF"
             tools:text="ETH Value" />
 
         <TextView
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_weight="1"
+            android:textColor="#FFFFFF"
             android:paddingTop="8dp"
             android:textSize="18sp"
             tools:text=" BTC Value" />

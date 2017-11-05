@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
             @Override
             public void onRefresh() {
                 retrieveData();
+                swipeRefreshLayout.setRefreshing(false);
                 Toast.makeText(MainActivity.this, "Data Refreshed...", Toast.LENGTH_SHORT).show();
             }
         });
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
         return super.onOptionsItemSelected(item);
     }
 
-    // Create and initialize text listerner for the search query
+    // Create and initialize text listener for the search query
     private void search(SearchView searchView) {
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -113,13 +114,18 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
 
     private void retrieveData() {
 
+        /*
+            This method uses the volley library to fetch and parse the JSON data gotten from the
+            Cryptocompare API.
+         */
+
         // Initialize progress bar reference to the view
         mProgressBar = findViewById(R.id.progressBar);
 
         // Initialize progress bar
         mProgressBar.setVisibility(ProgressBar.VISIBLE);
 
-
+        // Initiate the network request
         StringRequest request = new StringRequest(Request.Method.GET,
                 URL, new Response.Listener<String>() {
             @Override
@@ -136,14 +142,17 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
                     JSONObject js_btc_rates = jsonObject.getJSONObject(appConstant.CURR_BTC_DATA.trim());
                     JSONObject js_eth_rates = jsonObject.getJSONObject(appConstant.CURR_ETH_DATA.trim());
 
+                    // Iterate through the currency pairs
                     Iterator<String> btcKeys = js_btc_rates.keys();
                     Iterator<String> ethKeys = js_eth_rates.keys();
 
+                    // Loop the through the required keys
                     while (btcKeys.hasNext() && ethKeys.hasNext()) {
 
                         String btcKey = btcKeys.next();
                         String ethKey = ethKeys.next();
 
+                        // Add the extracted JSON Objects to the Array list
                         Currency xCurrList = new Currency(btcKey, js_eth_rates.getDouble(ethKey), js_btc_rates.getDouble(btcKey));
                         currLists.add(xCurrList);
                     }

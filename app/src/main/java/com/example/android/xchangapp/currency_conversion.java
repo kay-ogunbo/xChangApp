@@ -51,8 +51,8 @@ public class currency_conversion extends AppCompatActivity {
                 mInputAmount.setTransformationMethod(null);
                 mSelectedCurr.setText(currSym);
                 double inputAmount = Double.parseDouble(mInputAmount.getText().toString());
-                mEthResult.setText(String.format("%1$,.2f", (inputAmount * ethRate)));
-                mBtcResult.setText(String.format("%1$,.2f", (inputAmount * btcRate)));
+                mEthResult.setText(String.format("%1$,.2f", (inputAmount / ethRate)));
+                mBtcResult.setText(String.format("%1$,.2f", (inputAmount / btcRate)));
 
             }
         });
