@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
         setContentView(R.layout.activity_main);
 
         // Set up the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Set up the recycler and Refresh layout
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_to_refresh);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        swipeRefreshLayout = findViewById(R.id.swipe_to_refresh);
+        recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
     private void retrieveData() {
 
         // Initialize progress bar reference to the view
-        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mProgressBar = findViewById(R.id.progressBar);
 
         // Initialize progress bar
         mProgressBar.setVisibility(ProgressBar.VISIBLE);

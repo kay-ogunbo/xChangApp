@@ -36,12 +36,12 @@ public class currency_conversion extends AppCompatActivity {
         btcRate = currIntent.getDoubleExtra(appConstant.CURR_BTC_DATA_EXT, 0);
 
         //Intialize the required views
-        mInputAmount = (EditText)findViewById(R.id.input_amt);
-        mSelectedCurr = (TextView)findViewById(R.id.sel_curr_data);
-        mEthResult = (TextView)findViewById(R.id.eth_result_tv);
-        mBtcResult = (TextView)findViewById(R.id.btc_result_tv);
-        mConvertCurr = (Button) findViewById(R.id.btnConvert);
-        mClose = (Button) findViewById(R.id.btnClose);
+        mInputAmount = findViewById(R.id.input_amt);
+        mSelectedCurr = findViewById(R.id.sel_curr_data);
+        mEthResult = findViewById(R.id.eth_result_tv);
+        mBtcResult = findViewById(R.id.btc_result_tv);
+        mConvertCurr = findViewById(R.id.btnConvert);
+        mClose = findViewById(R.id.btnClose);
 
         // Calculation and parse to the required Textviews
         mConvertCurr.setOnClickListener(new View.OnClickListener() {

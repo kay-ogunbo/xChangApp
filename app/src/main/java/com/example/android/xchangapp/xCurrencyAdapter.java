@@ -110,9 +110,9 @@ public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.Data
         public DataViewHolder(View v){
             super(v);
 
-            currSym = (TextView) v.findViewById(R.id.currSym);
-            ethData = (TextView) v.findViewById(R.id.ethVal);
-            btcData = (TextView) v.findViewById(R.id.btcVal);
+            currSym = v.findViewById(R.id.currSym);
+            ethData = v.findViewById(R.id.ethVal);
+            btcData = v.findViewById(R.id.btcVal);
 
             v.setOnClickListener(this);
         }
