@@ -6,19 +6,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Ogunbowale on 11/1/2017.
  */
 
-public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.DataViewHolder>{
+public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.DataViewHolder> implements Filterable{
 
     private List<Currency> currLists;
+    private List<Currency> mFilteredList;
     private Context context;
     final private ListItemClickListner mOnClickListner;
+
 
     // click Listener interface
     public interface ListItemClickListner{
@@ -27,6 +32,7 @@ public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.Data
 
     public xCurrencyAdapter(List<Currency> currLists, ListItemClickListner listner){
         this.currLists = currLists;
+        this.mFilteredList =  currLists;
         mOnClickListner = listner;
     }
 
@@ -58,6 +64,39 @@ public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.Data
     @Override
     public int getItemCount() {
         return currLists.size();
+    }
+
+    // This method filters the recycler list data based in user input
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                String charString =  constraint.toString();
+                if (charString.isEmpty()){
+                    currLists = mFilteredList;
+                } else {
+
+                    List<Currency> filteredList = new ArrayList<>();
+                    for (Currency currency : mFilteredList){
+                        if (currency.getCurrSym().toLowerCase().contains(charString)){
+                            filteredList.add(currency);
+                        }
+                    }
+                    currLists = filteredList;
+                }
+                FilterResults filteredResults = new FilterResults();
+                filteredResults.values = currLists;
+                return filteredResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                currLists = (List<Currency>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     // All required view components are defined here

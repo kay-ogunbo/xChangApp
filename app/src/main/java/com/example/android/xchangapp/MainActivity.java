@@ -1,10 +1,15 @@
 package com.example.android.xchangapp;
 
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -39,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Set up the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         // Set up the recycler and Refresh layout
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_to_refresh);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -62,6 +71,41 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
             public void onRefresh() {
                 retrieveData();
                 Toast.makeText(MainActivity.this, "Data Refreshed...", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // This section implements the search functionality for the recycler view
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem search = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(search);
+        search(searchView);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    // Create and initialize text listerner for the search query
+    private void search(SearchView searchView) {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return true;
             }
         });
     }
