@@ -5,40 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.xchangapp.currency_conversion"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="33dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="155dp"
         android:text="Crypto Currency Conversion Page"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/input_amt"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="25dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="24dp" />
 
     <EditText
         android:id="@+id/input_amt"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="185dp"
-        android:layout_marginTop="186dp"
+        android:layout_marginBottom="38dp"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/edittext_img"
         android:digits="0123456789."
         android:ems="10"
+        android:textAlignment="center"
         android:inputType="number|none"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/btnConvert"
-        app:layout_constraintStart_toEndOf="@+id/btnConvert"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/btnClose"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="11dp"
         android:text="Conversion Results:"
         android:textAllCaps="true"
         android:textStyle="bold"
@@ -68,7 +70,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="66dp"
+        android:layout_marginBottom="65dp"
         android:layout_marginStart="95dp"
         android:text="BTC:"
         android:textStyle="bold"
@@ -90,22 +92,23 @@
         android:id="@+id/btnConvert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="19dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="19dp"
         android:text="Convert"
-        app:layout_constraintEnd_toStartOf="@+id/btnClose"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        android:layout_marginRight="19dp" />
+        android:layout_marginRight="16dp" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="86dp"
+        android:layout_marginTop="78dp"
         android:text="Selected Currency:"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_amt"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:text="Selected Currency:"
         android:layout_marginLeft="86dp" />
 
@@ -113,11 +116,11 @@
         android:id="@+id/sel_curr_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="31dp"
-        app:layout_constraintEnd_toEndOf="@+id/input_amt"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnClose"
         app:layout_constraintTop_toBottomOf="@+id/input_amt"
         tools:text="USD"
-        android:layout_marginRight="31dp" />
+        android:layout_marginRight="30dp" />
 
     <Button
         android:id="@+id/btnClose"

@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".currency_conversion"></activity>
+        <activity android:name=".currency_conversion" />
+        <activity android:name=".convert"></activity>
     </application>
 
 </manifest>
