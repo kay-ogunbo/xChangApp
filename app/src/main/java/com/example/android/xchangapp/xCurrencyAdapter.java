@@ -17,22 +17,17 @@ import java.util.List;
  * Created by Ogunbowale on 11/1/2017.
  */
 
-public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.DataViewHolder> implements Filterable{
+public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.DataViewHolder> implements Filterable {
 
+    final private ListItemClickListner mOnClickListner;
     private List<Currency> currLists;
     private List<Currency> mFilteredList;
     private Context context;
-    final private ListItemClickListner mOnClickListner;
 
 
-    // click Listener interface
-    public interface ListItemClickListner{
-        void onListItemClick(int clickedItemIndex);
-    }
-
-    public xCurrencyAdapter(List<Currency> currLists, ListItemClickListner listner){
+    public xCurrencyAdapter(List<Currency> currLists, ListItemClickListner listner) {
         this.currLists = currLists;
-        this.mFilteredList =  currLists;
+        this.mFilteredList = currLists;
         mOnClickListner = listner;
     }
 
@@ -60,7 +55,6 @@ public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.Data
 
     }
 
-
     @Override
     public int getItemCount() {
         return currLists.size();
@@ -73,14 +67,14 @@ public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.Data
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
 
-                String charString =  constraint.toString();
-                if (charString.isEmpty()){
+                String charString = constraint.toString();
+                if (charString.isEmpty()) {
                     currLists = mFilteredList;
                 } else {
 
                     List<Currency> filteredList = new ArrayList<>();
-                    for (Currency currency : mFilteredList){
-                        if (currency.getCurrSym().toLowerCase().contains(charString)){
+                    for (Currency currency : mFilteredList) {
+                        if (currency.getCurrSym().toLowerCase().contains(charString)) {
                             filteredList.add(currency);
                         }
                     }
@@ -99,15 +93,20 @@ public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.Data
         };
     }
 
+    // click Listener interface
+    public interface ListItemClickListner {
+        void onListItemClick(int clickedItemIndex);
+    }
+
     // All required view components are defined here
     public class DataViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener{
+            implements View.OnClickListener {
 
         TextView currSym;
         TextView ethData;
         TextView btcData;
 
-        public DataViewHolder(View v){
+        public DataViewHolder(View v) {
             super(v);
 
             currSym = v.findViewById(R.id.currSym);
@@ -119,7 +118,7 @@ public class xCurrencyAdapter extends RecyclerView.Adapter<xCurrencyAdapter.Data
 
         @Override
         public void onClick(View view) {
-             //Capture the item clicked by the user and put into an intent
+            //Capture the item clicked by the user and put into an intent
             int clickedPosition = getAdapterPosition();
             mOnClickListner.onListItemClick(clickedPosition);
             Currency currency = currLists.get(clickedPosition);

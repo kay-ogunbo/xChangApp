@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:background="?attr/selectableItemBackground"
-    android:paddingTop="4dp"
+    android:orientation="vertical"
     android:paddingBottom="4dp"
-    android:paddingRight="16dp"
     android:paddingLeft="16dp"
-    android:orientation="vertical">
+    android:paddingRight="16dp"
+    android:paddingTop="4dp">
 
 
     <LinearLayout
@@ -23,8 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:paddingTop="8dp"
-            android:textSize="16sp"
             android:textColor="#FFFFFF"
+            android:textSize="16sp"
             tools:text="Currency" />
 
 
@@ -35,8 +35,8 @@
             android:layout_gravity="end"
             android:layout_weight="1"
             android:paddingTop="8dp"
-            android:textSize="18sp"
             android:textColor="#FFFFFF"
+            android:textSize="18sp"
             tools:text="ETH Value" />
 
         <TextView
@@ -45,8 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_weight="1"
-            android:textColor="#FFFFFF"
             android:paddingTop="8dp"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             tools:text=" BTC Value" />
     </LinearLayout>

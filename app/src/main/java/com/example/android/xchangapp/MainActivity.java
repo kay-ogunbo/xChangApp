@@ -29,15 +29,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.ListItemClickListner {
 
-   // private static final String URL = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR,NGN,JPY,GBP,AUD,CAD,CHF,CNY,SEK,MXN,NZD,SGD,HKD,NOK,KRW,TRY,INR,RUB,BRL,ZAR,DKK,PLN,TWD,THB";
-    private static final String URL = appConstant.BASE_URL +"=" + appConstant.MAJOR_CURR_LIST;
     public static final List<Currency> currLists = new ArrayList<>();
+    // private static final String URL = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR,NGN,JPY,GBP,AUD,CAD,CHF,CNY,SEK,MXN,NZD,SGD,HKD,NOK,KRW,TRY,INR,RUB,BRL,ZAR,DKK,PLN,TWD,THB";
+    private static final String URL = appConstant.BASE_URL + "=" + appConstant.MAJOR_CURR_LIST;
     ProgressBar mProgressBar;
+    SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
     private xCurrencyAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    SwipeRefreshLayout swipeRefreshLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements xCurrencyAdapter.
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setHasFixedSize(true);
-        adapter = new xCurrencyAdapter(currLists,this);
+        adapter = new xCurrencyAdapter(currLists, this);
 
         // Line divider
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
